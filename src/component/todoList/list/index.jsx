@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { listContext } from '../index'
 import Button from "./Button";
 import List from "./List";
 
-function TodoList({ list,removeList }) {
+function TodoList() {
+    const { list, removeList } = useContext(listContext);
     return (
         <ul>
             {list.map((ele) =>

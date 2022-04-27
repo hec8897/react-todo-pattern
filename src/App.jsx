@@ -1,4 +1,4 @@
-import Todo from './component/todoList';
+import {Todo} from './component/todoList';
 
 function App() {
 

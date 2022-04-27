@@ -1,13 +1,19 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, createContext } from 'react';
 import CreateList from './create';
 import TodoList from './list';
 
+const listContext = createContext({
+    list: [],
+    addList: () => {},
+    removeList: () => {}
+
+})
+
 function Todo() {
-    const nextId = useRef(2)
+    const nextId = useRef(2);
     const [list, SetList] = useState(
         [
             { id: 0, desc: 'dawoon' },
-            { id: 1, desc: 'dawoon-2' },
         ]
     );
 
@@ -21,11 +27,12 @@ function Todo() {
     }
 
     return (
-        <>
-            <CreateList addList={addList} />
-            <TodoList list={list} removeList={removeList} />
-        </>
+        <listContext.Provider
+            value={{ list, addList,removeList }}>
+            <CreateList />
+            <TodoList />
+        </listContext.Provider>
     );
 }
 
-export default Todo;
+export { Todo, listContext };
