@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { listContext } from '../index'
+import './create.scss'
 
 function CreateList() {
     const { addList } = useContext(listContext);
@@ -12,9 +13,9 @@ function CreateList() {
     }
 
     return (
-        <div>
-            <input type="text" value={input} onChange={onChange} />
-            <button onClick={() => addList(input)}>저장</button>
+        <div className="header">
+            <input className="header__Input" type="text" value={input} onChange={onChange} />
+            <button className="header__btn btn" onClick={() => addList(input)}>저장</button>
         </div>
     )
 }
