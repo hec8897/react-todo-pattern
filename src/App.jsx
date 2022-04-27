@@ -1,17 +1,11 @@
-import { useState } from 'react';
-import TodoList from './component/list';
+import Todo from './component/todoList';
 
 function App() {
-  const [list, SetList] = useState(
-    [
-      { id: 0, desc: 'dawoon' },
-      { id: 1, desc: 'dawoon-2' },
-    ]
-  );
+
 
   return (
     <div className="App">
-      <TodoList list={list}/>
+      <Todo/>
     </div >
   );
 }
