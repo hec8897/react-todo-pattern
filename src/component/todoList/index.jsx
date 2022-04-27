@@ -4,16 +4,17 @@ import TodoList from './list';
 
 const listContext = createContext({
     list: [],
-    addList: () => {},
-    removeList: () => {}
-
+    addList: () => { },
+    removeList: () => { },
+    activeList: () => { }
 })
 
 function Todo() {
     const nextId = useRef(2);
+
     const [list, SetList] = useState(
         [
-            { id: 0, desc: 'dawoon' },
+            { id: 0, desc: 'dawoon', active: false },
         ]
     );
 
@@ -21,14 +22,20 @@ function Todo() {
         SetList(list.filter((ele) => ele.id !== id));
     }
 
+    const activeList = (id) => {
+        SetList(list.map((ele) => {
+            return ele.id === id ? { ...ele, active: !ele.active } : ele
+        }));
+    }
+
     const addList = (desc) => {
-        SetList([...list, { id: nextId.current, desc }])
+        SetList([...list, { id: nextId.current, active: false, desc }])
         nextId.current += 1;
     }
 
     return (
         <listContext.Provider
-            value={{ list, addList,removeList }}>
+            value={{ list, addList, removeList, activeList }}>
             <CreateList />
             <TodoList />
         </listContext.Provider>

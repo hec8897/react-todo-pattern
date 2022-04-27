@@ -7,10 +7,10 @@ function CreateList() {
     const [input, setInput] = useState('');
 
     const onChange = (e) => {
-        const { value } = e.target
-        setInput(value)
+        const { value } = e.target;
+        setInput(value);
     }
-    
+
     return (
         <div>
             <input type="text" value={input} onChange={onChange} />

@@ -4,12 +4,12 @@ import Button from "./Button";
 import List from "./List";
 
 function TodoList() {
-    const { list, removeList } = useContext(listContext);
+    const { list, removeList, activeList } = useContext(listContext);
     return (
         <ul>
             {list.map((ele) =>
                 <List key={ele.id}>
-                    <b>{ele.desc}</b>
+                    <b onClick={() => activeList(ele.id)} style={{ background: ele.active ? '#dcdcdc' : '' }}>{ele.desc}</b>
                     <Button id={ele.id} onClick={removeList}>삭제</Button>
                 </List>)
             }
