@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .btn {
-  @apply rounded-lg bg-blue-500;
+  @apply rounded-lg bg-blue-500 cursor-pointer ease-in-out duration-100;
 }

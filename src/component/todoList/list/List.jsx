@@ -1,6 +1,6 @@
 function List({children}) {
     return (
-        <li >{children}</li>
+        <li className="body__list flex items-center">{children}</li>
     )
 }
 

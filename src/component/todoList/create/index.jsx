@@ -15,7 +15,7 @@ function CreateList() {
     return (
         <div className="header">
             <input className="header__Input" type="text" value={input} onChange={onChange} />
-            <button className="header__btn btn" onClick={() => addList(input)}>저장</button>
+            <button className="btn header__btn" onClick={() => addList(input)}>저장</button>
         </div>
     )
 }

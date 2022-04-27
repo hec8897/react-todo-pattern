@@ -1,0 +1,15 @@
+.body {
+    @apply gap-10 flex flex-col w-1/2 drop-shadow-md;
+
+    &__list {
+        @apply bg-gray-100 p-5 px-10 flex-1 flex justify-between;
+    }
+
+    &__label {
+        @apply text-2xl;
+    }
+
+    &__btn {
+        @apply px-10 py-2 bg-red-300 text-white;
+    }
+}
